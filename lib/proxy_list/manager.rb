@@ -33,6 +33,16 @@ module ProxyList
       end
     end
 
+    # Return a random proxy from the list.
+    # Return nil if proxy servers list is empty.
+    def random_proxy
+      if @proxies.length > 0
+        @proxies[rand(@proxies.size)]
+      else
+        nil
+      end
+    end
+
     # delete a proxy from list
     def delete(proxy)
       @proxyies.delete(proxy)

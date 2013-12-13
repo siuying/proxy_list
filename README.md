@@ -39,6 +39,11 @@ manager.proxy
 manager.proxy
 => '2.2.2.2:8080'
 
+# Get a random proxy from the list, good when you have concurrent process
+# or do not need a straightly round robin access to the proxies
+manager.random_proxy
+=> '2.2.2.2:8080'
+
 # return all available proxy servers
 manager.proxies
 => ['0.0.0.0:8080', '1.1.1.1:8080', '2.2.2.2:8080']

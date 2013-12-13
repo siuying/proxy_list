@@ -39,4 +39,11 @@ describe ProxyList::Manager do
       manager.proxies.should == ["2", "1"]
     end
   end
+
+  context "#random_proxy" do
+    it "should return random proxy" do
+      manager = ProxyList::Manager.new(["1", "2"])
+      ["1", "2"].should be_include(manager.random_proxy)
+    end
+  end
 end
