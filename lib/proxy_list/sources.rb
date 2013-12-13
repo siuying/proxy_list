@@ -1,1 +1,0 @@
-require_relative './sources/xroxy_com'

@@ -2,8 +2,8 @@ require 'nokogiri'
 require 'open-uri'
 
 module ProxyList
-  module Sources
-    module XroxyCom
+  class Source
+    class XroxyCom
       OPTIONS_DEFAULT = {page_count: 10, country: "US"}
 
       def list(options={})
