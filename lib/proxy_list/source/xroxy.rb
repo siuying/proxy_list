@@ -3,7 +3,7 @@ require 'open-uri'
 
 module ProxyList
   class Source
-    class XroxyCom
+    class Xroxy
       OPTIONS_DEFAULT = {page_count: 10, country: "US"}
 
       def list(options={})

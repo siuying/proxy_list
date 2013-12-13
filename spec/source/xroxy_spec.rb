@@ -1,7 +1,7 @@
-require 'proxy_list/source/xroxy_com'
+require 'proxy_list/source/xroxy'
 
-describe ProxyList::Source::XroxyCom do
-  subject { ProxyList::Source::XroxyCom.new }
+describe ProxyList::Source::Xroxy do
+  subject { ProxyList::Source::Xroxy.new }
 
   context "#list" do
     it "should find proxy list" do
