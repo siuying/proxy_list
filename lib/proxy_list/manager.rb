@@ -13,7 +13,7 @@ module ProxyList
 
     # fetch proxy from sources
     def fetch
-      @proxies = @source.list
+      @proxies = @source.list.uniq
     end
 
     # validate proxies from sources, only keep valid proxies

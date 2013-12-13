@@ -10,6 +10,15 @@ describe ProxyList::Manager do
       manager.fetch.should == ['1', '2']
       manager.proxy.should == '1'
     end
+
+    it "should not return duplicate proxies" do
+      source = double(:source)
+      expect(source).to receive(:list) { ['1', '1'] }
+
+      manager = ProxyList::Manager.new([], source)
+      manager.fetch.should == ['1']
+      manager.proxy.should == '1'
+    end
   end
 
   context "#validate" do

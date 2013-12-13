@@ -1,5 +1,5 @@
 require_relative './source/xroxy'
-require_relative './source/cx88'
+require_relative './source/cz88'
 
 module ProxyList
   class Source
