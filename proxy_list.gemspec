@@ -8,9 +8,9 @@ Gem::Specification.new do |spec|
   spec.version       = ProxyList::VERSION
   spec.authors       = ["Francis Chong"]
   spec.email         = ["francis@ignition.hk"]
-  spec.description   = %q{TODO: Write a gem description}
-  spec.summary       = %q{TODO: Write a gem summary}
-  spec.homepage      = ""
+  spec.description   = %q{Gather list of proxies from various sources, validate them and rotate them for use.}
+  spec.summary       = %q{Gather list of proxies from various sources, validate them and rotate them for use.}
+  spec.homepage      = "https://github.com/siuying/proxy_list"
   spec.license       = "MIT"
 
   spec.files         = `git ls-files`.split($/)
