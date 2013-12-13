@@ -44,8 +44,12 @@ module ProxyList
     end
 
     # delete a proxy from list
-    def delete(proxy)
-      @proxies.delete(proxy)
+    # if parametyer validate is true, it will validate the proxy before delete, and only delete if it is invalid
+    # otherwise, simply delete a proxy from list
+    def delete(proxy, validate: false)
+      if !validate || !@validator.validate(proxy)
+        @proxies.delete(proxy)
+      end      
     end
 
     private 

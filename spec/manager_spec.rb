@@ -38,6 +38,23 @@ describe ProxyList::Manager do
       manager.delete("3")
       manager.proxies.should == ["1", "2"]
     end
+
+    it "should delete a proxy if it is invalid" do
+      validator = double(:validator)
+      source = double(:source)
+      allow(validator).to receive(:validate) { false }
+      manager = ProxyList::Manager.new(["1", "2", "3"], source, validator)
+      manager.delete("3", validate: true)
+      manager.delete("1", validate: true)
+      manager.proxies.should == ["2"]
+      
+      validator2 = double(:validator2)
+      allow(validator2).to receive(:validate) { true }
+      manager = ProxyList::Manager.new(["1", "2", "3"], source, validator2)
+      manager.delete("3", validate: true)
+      manager.delete("1", validate: true)
+      manager.proxies.should == ["1", "2", "3"]
+    end
   end
 
   context "#proxy" do
