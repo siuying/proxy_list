@@ -45,7 +45,7 @@ module ProxyList
 
     # delete a proxy from list
     def delete(proxy)
-      @proxyies.delete(proxy)
+      @proxies.delete(proxy)
     end
 
     private 

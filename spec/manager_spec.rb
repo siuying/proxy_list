@@ -32,6 +32,14 @@ describe ProxyList::Manager do
     end
   end
 
+  context "#delete" do
+    it "should delete a proxy" do
+      manager = ProxyList::Manager.new(["1", "2", "3"])
+      manager.delete("3")
+      manager.proxies.should == ["1", "2"]
+    end
+  end
+
   context "#proxy" do
     it "should return first proxy, then rotate it" do
       manager = ProxyList::Manager.new(["1", "2"])
