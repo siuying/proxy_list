@@ -10,4 +10,13 @@ describe ProxyList::Validator do
       subject.validate("127.0.0.1:50").should be_false
     end
   end
+
+  context "#validate_proxies" do
+    it "should validate list of proxy" do
+      allow(subject).to receive(:validate).and_return(false, false, true)
+      proxies = subject.validate_proxies(["1.1.1.1:1", "2.2.2.2:2", "3.3.3.3:3"])
+      proxies.size.should == 1
+      proxies[0].should == "3.3.3.3:3"
+    end
+  end
 end

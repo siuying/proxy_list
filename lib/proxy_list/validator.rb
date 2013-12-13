@@ -1,4 +1,5 @@
 require 'httparty'
+require 'thread/pool'
 
 module ProxyList
   class Validator
@@ -16,6 +17,21 @@ module ProxyList
       false
     rescue
       false
+    end
+
+    # validate list of proxies, and return list of valid proxy
+    def validate_proxies(proxies, poolsize=10)
+      results = []
+
+      pool = Thread.pool(poolsize)
+      proxies.each do |proxy|
+        pool.process {
+          results << {proxy: proxy, valid: validate(proxy)}
+        }
+      end
+      pool.shutdown
+
+      results.select {|r| r[:valid] }.collect { |r| r[:proxy] }
     end
   end
 end
