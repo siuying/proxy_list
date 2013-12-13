@@ -23,15 +23,20 @@ module ProxyList
     def validate_proxies(proxies, poolsize=10)
       results = []
 
+      lock = Mutex.new
       pool = Thread.pool(poolsize)
       proxies.each do |proxy|
         pool.process {
-          results << {proxy: proxy, valid: validate(proxy)}
+          if validate(proxy)
+            lock.synchronize {
+              results << proxy
+            }
+          end
         }
       end
       pool.shutdown
 
-      results.select {|r| r[:valid] }.collect { |r| r[:proxy] }
+      results
     end
   end
 end
