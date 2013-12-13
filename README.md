@@ -43,6 +43,10 @@ manager.proxy
 manager.proxies
 => ['0.0.0.0:8080', '1.1.1.1:8080', '2.2.2.2:8080']
 
+# remove a proxy from list
+manager.delete('0.0.0.0:8080')
+=> '0.0.0.0:8080'
+
 ```
 
 ## Contributing

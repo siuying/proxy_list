@@ -33,6 +33,11 @@ module ProxyList
       end
     end
 
+    # delete a proxy from list
+    def delete(proxy)
+      @proxyies.delete(proxy)
+    end
+
     private 
 
     # rotate the list of proxy. i.e. move the first proxies item to last.
