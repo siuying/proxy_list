@@ -20,7 +20,7 @@ module ProxyList
     end
 
     # validate list of proxies, and return list of valid proxy
-    def validate_proxies(proxies, poolsize=10, timeout=3)
+    def validate_proxies(proxies, poolsize=50, timeout=1)
       results = []
 
       lock = Mutex.new
