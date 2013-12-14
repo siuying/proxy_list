@@ -17,8 +17,8 @@ module ProxyList
     end
 
     # validate proxies from sources, only keep valid proxies
-    def validate
-      @proxies = @validator.validate_proxies(@proxies)
+    def validate(timeout=3)
+      @proxies = @validator.validate_proxies(@proxies, timeout)
     end
 
     # Return first proxy from list, then rotate the proxy list.
